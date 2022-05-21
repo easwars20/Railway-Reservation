@@ -1,0 +1,25 @@
+.card-img-top{
+    margin-top: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 8%;
+    padding: 3%;
+    height: 70mm;
+    width: 89.5mm;
+}
+.card-text{
+    text-align: left;
+}
+.btn-outline-primary{
+    width:135px;
+    color:white;
+    background-color: #0c99d1;
+    box-shadow: #094c66 4px 4px 0px;
+    border-radius: 8px;
+    transition: transform 200ms, box-shadow 200ms;
+}
+.btn-outline-primary{
+    transform: translateY(4px) translateX(4px);
+    box-shadow: #094c66 0px 0px 0px;
+}
+

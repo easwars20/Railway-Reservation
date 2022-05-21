@@ -1,0 +1,23 @@
+<div class="row">
+
+  <div class="col-sm-3" *ngFor="let destination of destinations">
+    <div class="card" style="width: 89.5mm;">
+    <img class="card-img-top" src="{{destination.img_url}}" alt="Card image cap">
+    <div class="card-body">
+      <div class="card text-center">
+        <div class="card-header">
+         <h5> {{destination.destination}}</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title">{{destination.special}}</h6>
+          <p class="card-text" >{{destination.about}}</p>
+          <a class="btn btn-outline-primary" (click)="selectDestination(destination)">BOOK TICKETS!</a>
+         
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>

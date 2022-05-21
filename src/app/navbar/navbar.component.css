@@ -1,0 +1,24 @@
+.navbar-nav{
+    padding-left: 68%;
+}
+.navbar{
+    background-color: black;
+}
+/* .btn-outline-success{
+    width:170px;
+    color: white;
+    background-color: #15913a;
+    box-shadow: #054e1c 4px 4px 0px;
+    border-radius: 8px;
+    transition: transform 200ms, box-shadow 200ms;
+}
+.btn-outline-success:active{
+    transform: translateY(4px) translateX(4px);
+    box-shadow: #094c66 0px 0px 0px;
+} */
+a{
+    color: white;
+}
+.dropdown-item{
+    color: black;
+}

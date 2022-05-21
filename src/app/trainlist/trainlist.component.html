@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="card" style="padding: 3%;margin: 3%;">
+    <!-- *ngFor="let t of trains; -->
+    <div class="card-body">
+        <h6 class="card-title"><span style="color: #b76118;">{{t.trainNumber}} </span> {{t.trainName | uppercase}}</h6>
+
+        <div class="trainCard row no-gutters">
+            <div class="col-md-5">
+                <div class="row no-gutters">
+                    <div class="col-md-4">Source</div>
+                    <div class="col-md-4">Destination</div>
+                    <div class="col-md-2">Dep.</div>
+                    <div class="col-md-2">Arr.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row no-gutters">
+                    <div class="col-md-9">Days Running</div>
+                    <div class="col-md-3">Seats</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row no-gutters">
+                    <div class="col-md-9">Class</div>
+                    <div class="col-md-3">Fare</div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-1 no-gutters">
+            <div class="col-md-5">
+                <div class="row no-gutters">
+                    <div class="col-md-4">{{t.source}}</div>
+                    <div class="col-md-4">{{t.destination}}</div>
+                    <div class="col-md-2">{{t.departure}}.</div>
+                    <div class="col-md-2">{{t.arrival}}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row no-gutters">
+                    <div class="col-md-9" style="font-size: 14px;">
+                        <span class="dayTip" *ngFor="let d of t.journeyDay">{{d}}</span>
+                    </div>
+                    <div class="col-md-3">{{t.seats}}</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="row no-gutters">
+                    <div class="col-md-9">
+                        <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>Select Class</option>
+                            <option value="1">2S-Second Sitting</option>
+                            <option value="2">SL-Sleeper</option>
+                            <option value="3">2A-2-Tier AC</option>
+                          </select> -->
+                        <select (change)="getFare(j)">
+                        <option *ngFor="let c of t.trainClasses; let j = index" [value]="j">
+                            {{c}}</option>
+                            </select>
+                    </div>
+                    
+                    <div class="fare col-md-3">1010</div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="pt-2 pull-right">
+                <button class="btn btn-success">Book</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
