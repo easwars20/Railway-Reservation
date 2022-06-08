@@ -1,5 +1,5 @@
 .navbar-nav{
-    padding-left: 68%;
+    padding-left: 60%;
 }
 .navbar{
     background-color: black;
@@ -21,4 +21,7 @@ a{
 }
 .dropdown-item{
     color: black;
+}
+.fa-cog{
+    font-size: 30px;
 }

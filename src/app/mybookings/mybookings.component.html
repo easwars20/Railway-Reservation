@@ -1,0 +1,58 @@
+<div>
+  
+<div class="container">
+
+  <div class="card border-dark mb-3"  *ngFor="let enrollment of enrollments">
+    <div class="card-header">
+      <h3>TICKET DETAILS</h3>
+    </div>
+    
+
+      <div class="container1">
+        <div class="row">
+          <div class="col">
+            <h4 class="train">{{enrollment.trainDetail.trainnumber}} &#160;<b>{{ enrollment.trainDetail.trainname}}</b></h4>
+          </div>
+          <div class="col">
+            <h5 class="far">{{enrollment.trainclass}} &#160; <strong>{{ enrollment.fare}}</strong></h5>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container2">
+        <div class="row">
+
+          <div class="col">
+            <table class="table1">
+              <thead>
+                <tr>
+                  <th scope="col">Source</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Gender</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ enrollment.trainDetail.source}}</td>
+                  <td>{{ enrollment.trainDetail.destination.destination}}</td>
+                  <td>{{ enrollment.passengername}}</td>
+                  <td>{{ enrollment.age}}</td>
+                  <td>{{ enrollment.gender}}</td>
+                </tr>
+                <div><button type="button" class="btn btn-warning">Cancel</button></div>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<router-outlet></router-outlet>

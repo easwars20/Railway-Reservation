@@ -1,49 +1,53 @@
-<div class="container pt-5">
-    <h5>Fill Passenger Details</h5>
-    <form class="pt-1" #passengerForm="ngForm" (ngSubmit)="!passengerForm.invalid">
-        <div class="form-group row" *ngFor="let p of passengers; let i = index">
-            <div class="col-md-3">
-                <input type="text" class="form-control" [(ngModel)]="pname[i]" [name]="pname[i]"
-                    [ngModelOptions]="{standalone: true}" placeholder="Enter name" required>
-            </div>
-            <div class="col-md-2">
-                <input type="number" class="form-control" [(ngModel)]="age[i]" [name]="age[i]"
-                    [ngModelOptions]="{standalone: true}" placeholder="Enter age" required>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" [(ngModel)]="gender[i]" [name]="gender[i]"[ngModelOptions]="{standalone: true}">
-                    <option>-- gender --</option>
-                    <option *ngFor="let gen of genderList" [value]="gen.id">{{gen.name}}</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" [(ngModel)]="preference[i]" [name]="preference[i]"
-                    [ngModelOptions]="{standalone: true}">
-                    <option>-- preference --</option>
-                    <option *ngFor="let pre of preferenceList" [value]="pre.id">{{pre.name}}</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <select class="form-control" [(ngModel)]="food[i]" [name]="food[i]" [ngModelOptions]="{standalone: true}">
-                    <option>-- food --</option>
-                    <option *ngFor="let food of foodList" [value]="food.id">{{food.name}}</option>
-                </select>
-            </div>
-            <div class="col-md-1 align-self-center" *ngIf="i != 0" style="padding-left: 0;">
-                <button class="deleteBtn btn-sm" (click)="deletePassenger(i)"><span class="fa fa-times"></span></button>
-            </div>
-        </div>
-        <div class="col-md-11 text-right">
-            <button class="btn btn-primary btn-sm" (click)="addPassenger()">
-                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Passenger
-            </button>
-        </div>
-        <div class="container text-center">
-            <button type="submit" class="btn btn-success" [disabled]="passengerForm.invalid"
-                (click)="submitPassengerDetails()">
-                Proceed to Payment
-            </button>
-        </div>
-    </form>
+<div class="container" >
+  <div class="col-sm-6 box">
+    <form [formGroup]= "details">
+    <div class="form-group">
+        <label>Passenger Name</label>
+        <input type="Name" required class="form-control" formControlName="name" placeholder="Enter Name">
+        <span class="error" *ngIf= "name?.invalid && name?.touched">Name is required!</span>
+    </div><br>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="number" required class="form-control" formControlName="age" placeholder="Enter Age">
+        <span class="error" *ngIf= "age?.invalid && age?.touched">Age is required!</span>
+    </div><br>
+    <div class="form-group">
+        <label>Enter Contact No.</label>
+        <input type="number" required class="form-control" formControlName="number" placeholder="Enter Contact Number">
+        <span class="error" *ngIf= "number?.invalid && number?.touched">Contact No. is required!</span>
+    </div><br>
+      <div class="form-group">
+        <label>Enter Gender</label>
+        <input type="text" required class="form-control" formControlName="gender" placeholder="Enter Gender"><br>
+        <span class="error" *ngIf= "number?.invalid && number?.touched">Gender is required!</span>
+     <div class="form-row mt-4">
+      <div class="col md-6">  
 </div>
-</div>
+</div></div>
+</form> 
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    SUBMIT
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">PROCEED TO PAYMENT ?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Clicking yes will take you to a payment gateway, Proceed ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go back</button>
+          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="proceed()">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+  <router-outlet></router-outlet>
+    

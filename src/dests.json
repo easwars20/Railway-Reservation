@@ -1,0 +1,44 @@
+[
+    {
+        "id": 0,
+        "destination": "BANGLORE",
+        "imageUrl": null,
+        "special": "SILICON VALLEY OF INDIA",
+        "about": "Bangalore is widely regarded as the IT capital of India because of its role as the nation's leading information technology exporter."
+    },
+    {
+        "id": 1,
+        "destination": "CHENNAI",
+        "imageUrl": "https://images.unsplash.com/photo-1528035544317-2cd2fab2d213?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871",
+        "special": "\"GATEWAY OF SOUTH INDIA\",",
+        "about": "\"Despite being a metropolitan city, Chennai exhibits a perfect amalgamation of art, architecture, dance, music and drama.\""
+    },
+    {
+        "id": 2,
+        "destination": "KERALA",
+        "imageUrl": null,
+        "special": " GOD'S OWN COUNTRY",
+        "about": "Named as one of the ten paradises of the world, Kerala is famous especially for its ecotourism initiatives and beautiful backwaters."
+    },
+    {
+        "id": 3,
+        "destination": "BANGLORE",
+        "imageUrl": null,
+        "special": "SILICON VALLEY OF INDIA",
+        "about": "Bangalore is widely regarded as the IT capital of India because of its role as the nation's leading information technology exporter."
+    },
+    {
+        "id": 4,
+        "destination": "NEW DELHI",
+        "imageUrl": "https://images.unsplash.com/photo-1515091943-9d5c0ad475af?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435",
+        "special": "CITY OF RALLIES",
+        "about": "According to legend, the city was named for Raja Dhilu, a king who reigned in the region in the 1st century bce."
+    },
+    {
+        "id": 5,
+        "destination": "CHENNAI",
+        "imageUrl": "\"https://images.unsplash.com/photo-1528035544317-2cd2fab2d213?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871\",",
+        "special": "\"GATEWAY OF SOUTH INDIA\",",
+        "about": "\"Despite being a metropolitan city, Chennai exhibits a perfect amalgamation of art, architecture, dance, music and drama.\""
+    }
+]

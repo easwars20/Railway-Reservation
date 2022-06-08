@@ -1,0 +1,134 @@
+<div class="body">
+<table class="table">
+    <thead>
+        <tr style="border:2px solid rgb(3,2,46);">
+        <th scope="col"><b>Destination</b></th>
+        <th scope="col"><b>Image</b></th>
+        <th scope="col"><b>Special</b></th>
+        <th scope="col"><b>About</b></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let destination of destinations">
+        <tr>
+            <td>{{destination.destination}}</td>
+            <td><img src="{{destination.image_url}}" style="width:20px;"></td>
+            <td>{{destination.special}}</td>
+            <td>{{destination.about}}</td>
+              <i class="fa fa-pencil-square-o" aria-hidden="true" type="button" data-bs-toggle="modal" data-bs-target="#edit" (click)="editdestination(destination)"></i>
+              <i class="fa fa-trash-o" aria-hidden="true" (click)="delete(destination)"></i>
+        </tr>
+     
+    </tbody>
+     
+</table>    
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+    ADD DESTINATION
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            
+
+
+            <!-- ADD FORM -->
+            <form #destinationform="ngForm" (ngsubmit)="onFormSubmit(destinationform)">
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination"
+                    [(ngModel)]="newdestination.destination" name="destination">
+                </div>
+                <div class="form-group">
+                    <label for="name">Image</label>
+                    <input type="text" class="form-control" id="image"
+                    [(ngModel)]="newdestination.image_url" name="image">
+                </div>
+                <div class="form-group">
+                <label for="name">Special</label>
+                <input type="text" class="form-control" id="special"
+                [(ngModel)]="newdestination.special" name="source">
+                </div>
+                <div class="form-group">
+                    <label for="name">About</label>
+                    <input type="text" class="form-control" id="about"
+                    [(ngModel)]="newdestination.about" name="about">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"(click)=" onFormSubmit(newdestination)">add</button>
+                    </div>
+
+            </form>
+
+
+
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+<!-- EDIT MODAL -->
+
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">EDIT DESTINATION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+<div class="modal-body">
+
+<!-- EDIT FORM -->
+
+<form [formGroup]="editdestinationForm" (ngSubmit)="onEdit()">
+   <div class="form-row">
+    <div class="row gutters">
+     <!-- <div class="col-md-4 mb-3">
+      <label for="id">Destination Id</label>
+       <input type="number" formControlName="employeeid" class="form-control" id="id"  placeholder="Id"  required>
+     </div> -->
+     <div class="form-group">
+     <label for="name">Destination</label>
+     <input type="text"  class="form-control" id="destination" formControlName="destination">
+     </div>
+     <div class="form-group">
+     <label for="name">Image URL</label>
+     <input type="text"  class="form-control" id="image_url" formControlName="image_url">
+     </div>
+     <div class="form-group">
+     <label for="name">Special</label>
+     <input type="text"  class="form-control" id="special" formControlName="special">
+     </div>
+     <div class="form-group">
+      <label for="name">About</label>
+      <input type="text"  class="form-control" id="about" formControlName="about">
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" >Submit</button>
+      </div></div></div>
+</form></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>

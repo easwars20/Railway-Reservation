@@ -1,8 +1,9 @@
 <div class="container">
-    <div class="card" style="padding: 3%;margin: 3%;">
-    <!-- *ngFor="let t of trains; -->
+    <label for="start">Select Travel date:</label><Br>
+    <input type="date" id="start" [min]="today" [value]="selectedDate" (change)="changeDate($event)" />
+    <div class="card" style="padding: 3%;margin: 3%;" *ngFor="let tr of t.trains; let k = index">
     <div class="card-body">
-        <h6 class="card-title"><span style="color: #b76118;">{{t.trainNumber}} </span> {{t.trainName | uppercase}}</h6>
+        <h6 class="card-title"><span style="color: #b76118;">{{tr.trainnumber}} </span> {{tr.trainname | uppercase}}</h6>
 
         <div class="trainCard row no-gutters">
             <div class="col-md-5">
@@ -29,42 +30,36 @@
         <div class="row pt-1 no-gutters">
             <div class="col-md-5">
                 <div class="row no-gutters">
-                    <div class="col-md-4">{{t.source}}</div>
+                    <div class="col-md-4">{{tr.source}}</div>
                     <div class="col-md-4">{{t.destination}}</div>
-                    <div class="col-md-2">{{t.departure}}.</div>
-                    <div class="col-md-2">{{t.arrival}}</div>
+                    <div class="col-md-2">{{tr.departure}}</div>
+                    <div class="col-md-2">{{tr.arrival}}</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="row no-gutters">
                     <div class="col-md-9" style="font-size: 14px;">
-                        <span class="dayTip" *ngFor="let d of t.journeyDay">{{d}}</span>
+                        <span class="dayTip" *ngFor="let d of tr.journeyday">{{d}}</span>
                     </div>
-                    <div class="col-md-3">{{t.seats}}</div>
+                    <div class="col-md-3">{{tr.seats}}</div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="row no-gutters">
                     <div class="col-md-9">
-                        <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                            <option selected>Select Class</option>
-                            <option value="1">2S-Second Sitting</option>
-                            <option value="2">SL-Sleeper</option>
-                            <option value="3">2A-2-Tier AC</option>
-                          </select> -->
-                        <select (change)="getFare(j)">
-                        <option *ngFor="let c of t.trainClasses; let j = index" [value]="j">
-                            {{c}}</option>
+                          <select (change)="getFare($event, k)">
+                        <option *ngFor="let c of tr.trainClasses; let j = index" [value]="j">
+                            {{c.name}}</option>
                             </select>
                     </div>
                     
-                    <div class="fare col-md-3">1010</div>
+                    <div class="fare col-md-3">{{newFare[k]}}</div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <div class="pt-2 pull-right">
-                <button class="btn btn-success">Book</button>
+            <div class="pt-2 pull-left">
+                <button class="btn btn-success" (click)="selectTrain(k)">BOOK</button>
             </div>
         </div>
     </div>

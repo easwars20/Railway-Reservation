@@ -19,19 +19,22 @@
             <a class="nav-link active" aria-current="page" routerLink="/" >Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " >My Bookings</a>
+            <a class="nav-link " routerLink="/mybookings" >My Bookings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/masterdatatraindetails" >Train List</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Settings
-            </a>
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+              <i class="fa fa-cog" routerLink="/masterdata" aria-hidden="true">
+            
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" >About us</a></li>
               <li><a class="dropdown-item" >Help</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" >Logout</a></li>
-            </ul>
-          </li></ul>
+            </ul></i></a></li></ul>
+          
           <!-- <li class="nav-item">
             <a class="nav-link disabled" tabindex="-1" aria-disabled="true">Disabled</a>
           </li> -->

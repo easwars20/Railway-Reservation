@@ -10,10 +10,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // const navmenu =document.querySelector("#navmenu");
-    // navmenu!.addEventListener ("click",() =>{
-    //   navmenu!.classList.toggle("active");
-    // })
+ 
   
   }
   

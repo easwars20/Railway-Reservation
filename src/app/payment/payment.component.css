@@ -1,0 +1,26 @@
+input {
+   outline:none;
+  
+   font-size: '25px';
+   font-weight: 500;
+   background-color: transparent;
+    }
+
+.card-errors{
+    color: red;
+ }
+
+.pay-btn{
+         display: flex;
+         height: 50px;
+         justify-content: center;
+         align-items: center;
+    }
+  .container{
+    background-image: url('../../assets/output-onlinepngtools1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+.form-group{
+  margin-top: 10px;
+}
