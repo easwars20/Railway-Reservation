@@ -15,6 +15,8 @@ export class TrainlistComponent implements OnInit {
   settraindetail(data:any, selectedtrain:any){
     this.newFare=[];
     this.selectedFare=[];
+    
+    //To display String as Arrays
     for(var i=0;i<data.length;i++){
       data[i].journeyday=data[i].journeyday.split(',')
       data[i].trainClasses= [
