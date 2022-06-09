@@ -9,7 +9,6 @@ import { TrainService } from '../train.service';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-  course!:any[]
 
   constructor(private router:Router,private trainservice:TrainService,
     private dataservice:DataserviceService) { }
@@ -17,11 +16,6 @@ export class PaymentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-//   enrollTrain(course:any){
-
-// this.enrollmentService.enroll(course);
-
-//   }
   paynow(){
     var info = this.trainservice.selectedDestination.getValue()
     var bookingData = {

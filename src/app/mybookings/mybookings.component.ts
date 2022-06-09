@@ -11,13 +11,14 @@ import { TrainService } from '../train.service';
 export class MybookingsComponent implements OnInit {
 
   constructor(private router:Router, private trainservice: TrainService, private dataservice: DataserviceService) { }
-  enrollments!:any
+
+  bookings!:any
   
   ngOnInit(): void {
     this.dataservice.getData(`MyBookings`)
         .subscribe(bookingData => {
           console.log(bookingData)
-          this.enrollments=bookingData
+          this.bookings=bookingData
          })
    
 }

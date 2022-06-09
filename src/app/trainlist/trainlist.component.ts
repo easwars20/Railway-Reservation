@@ -12,43 +12,34 @@ export class TrainlistComponent implements OnInit {
 
   constructor(private trainservice: TrainService, private router:Router) { }
 
-  settraindetail(data:any, selectedDestination:any){
+  settraindetail(train:any, selectedDestination:any){
     this.newFare=[];
     this.selectedFare=[];
     
-    for(var i=0;i<data.length;i++){
+    for(var i=0;i<train.length;i++){
       // sun,mon,tue
-      data[i].journeyday=data[i].journeyday.split(',')
-      data[i].trainClasses= [
+      train[i].journeyday=train[i].journeyday.split(',')
+      train[i].trainClasses= [
         { name: "Second Sitting (2S)", fare: 210 },
         { name: "Sleeper (SL)", fare: 355 },
         { name: "AC 3 Tier (3A)", fare: 960 },
         { name: "AC 2 Tier (2A)", fare: 1370 }
       ];
-      this.selectedFare.push(data[i].trainClasses[0])
-      this.newFare.push(data[i].trainClasses[0].fare)
+      this.selectedFare.push(train[i].trainClasses[0])
+      this.newFare.push(train[i].trainClasses[0].fare)
     }
-    selectedDestination.trains=data
+    selectedDestination.trains=train
     this.t=selectedDestination
 
-    //this.destinations = data
+    
     
     }
 
     selectTrain(trainIndex:any){
       var selectedTrain: any;
-      // for(var idx = 0; idx < this.t.trains.length; idx ++) {
-      //   var train = this.t.trains[idx];
-      //   if (trainIndex === idx) {
-      //     selectedTrain = train;
-      //   }
-      // }
+
       selectedTrain = this.t.trains[trainIndex];
-      // this.t.trains.forEach((train: any, idx: any) => {
-      //   if (trainIndex === idx) {
-      //     selectedTrain = train;
-      //   }
-      // })
+     
       var selectedFare = this.selectedFare[trainIndex]
       selectedTrain.selectedFare = selectedFare;
       selectedTrain.selectedDate = this.selectedDate;
@@ -93,7 +84,7 @@ export class TrainlistComponent implements OnInit {
     if (day.length < 2)
       day = '0' + day;
 
-    return year + '-' + month + '-' + day;
+    return day + '-' + month + '-' + year;
   }
 
 
@@ -106,26 +97,16 @@ export class TrainlistComponent implements OnInit {
 
     this.gettraindestination()
 
-    // this.trainservice.selectedDestination.subscribe((data) => {
-    //   this.t = data;
-    
     var day = new Date();
      
     this.today = this.formatDate(day)
     this.selectedDate = this.today
      
-    //   this.newFare = []
-    //   for (var i = 0; i < this.t.trains.length; i++) {
-    //     var train = this.t.trains[i];
-    
-    //       this.newFare.push(train.trainClasses[0].fare)
-    //   }
-     
-    //});
+ 
   }
 
 
-  bookTicket(item: any) { }
+  // bookTicket(item: any) { }
 
   getFare(e: any, k: number) {
     var idx = Number(e.target.value)

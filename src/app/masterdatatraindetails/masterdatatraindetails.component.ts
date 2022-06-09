@@ -9,21 +9,24 @@ import { TrainService } from '../train.service';
 })
 export class MasterdatatraindetailsComponent implements OnInit {
 
-  constructor(private trainservice: TrainService, private dataservice: DataserviceService) { }
+constructor(private trainservice: TrainService, private dataservice: DataserviceService) { }
  
- destinations: any = []
-  t:any
-  newtrain:any={}
+destinations: any = []
+trains:any
+newtrain:any={}
     
     ngOnInit(): void {
       this.trainservice.getAllTrain().subscribe(
+        
 
         (data: any) => {
           this.trainservice.gettraindestination().subscribe((dest: any) => {
+            
             this.destinations = dest;
           })
           console.log(data)
-          this.t = data;
+          this.trains = data;
+          
   
         },
   
@@ -32,7 +35,7 @@ export class MasterdatatraindetailsComponent implements OnInit {
       );
     
     }
-    onFormSubmit(trainform:any){
+    onFormSubmit(trainform:any){ 
       // {dest: 1} -> {dest: {id: 1}}
       this.newtrain.destination = {
         id: this.newtrain.destination
@@ -41,8 +44,8 @@ export class MasterdatatraindetailsComponent implements OnInit {
       this.newtrain={};
     }
     
-    delete(tr:any){
-        this.dataservice.postData(`TrainDetailAll/delete`,tr)
+    delete(train:any){
+        this.dataservice.postData(`TrainDetailAll/delete`,train)
     
 
   }

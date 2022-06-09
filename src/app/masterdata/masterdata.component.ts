@@ -12,19 +12,19 @@ export class MasterdataComponent implements OnInit {
 
 destinations!:any[]
 newdestination:any={}
-  editeddestination: any={};
+editeddestination: any={};
 
-  constructor(private trainservice: TrainService, private dataservice: DataserviceService) { }
+constructor(private trainservice: TrainService, private dataservice: DataserviceService) { }
 
 
  
-  settraindestination(data: any) {
-
-    this.destinations = data
+settraindestination(data: any) {
+          
+        this.destinations = data
 
   }
 
-  gettraindestination() {
+gettraindestination() {
 
     this.trainservice.gettraindestination().subscribe(
 
@@ -44,10 +44,10 @@ newdestination:any={}
   editdestinationForm=new FormGroup({
 
     id:         new FormControl(),
-    destination: new FormControl(),
+    destination:new FormControl(),
     image_url : new FormControl(),
-    special:         new FormControl(),
-    about:         new FormControl(),
+    special:    new FormControl(),
+    about:      new FormControl(),
   })
 
   onEdit(){
@@ -56,7 +56,7 @@ newdestination:any={}
     this.editeddestination.image_url = this.editdestinationForm.controls['image_url'].value
     this.editeddestination.special = this.editdestinationForm.controls['special'].value
     this.editeddestination.about = this.editdestinationForm.controls['about'].value
-console.log(this.editeddestination);
+    console.log(this.editeddestination);
 
  this.dataservice.postData(`Destination/edit`,this.editeddestination);
 

@@ -170,9 +170,6 @@ export class TrainService {
 
   public selectedDestination: BehaviorSubject<any> = new BehaviorSubject<any>([]);
 
-  getdestinations() {
-    return this.destinations
-  }
 
   selectDestination(data: any) {
     this.selectedDestination.next(data)

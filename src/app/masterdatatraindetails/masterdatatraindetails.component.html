@@ -12,19 +12,19 @@
             <th scope="col"><b>Journey Days</b></th>
             </tr>
         </thead>
-        <tbody *ngFor="let tr of t">
+        <tbody *ngFor="let train of trains">
             <tr>
-                <td>{{tr.trainnumber}}</td>
-                <td>{{tr.trainname}}</td>
-                <td>{{tr.source}}</td>
-                <td>{{tr.destination.destination}}</td>
-                <td>{{tr.departure}}</td>
-                <td>{{tr.arrival}}</td>
-                <td>{{tr.seats}}</td>
-                <td>{{tr.journeyday}}</td>
+                <td>{{train.trainnumber}}</td>
+                <td>{{train.trainname}}</td>
+                <td>{{train.source}}</td>
+                <td>{{train.destination.destination}}</td>
+                <td>{{train.departure}}</td>
+                <td>{{train.arrival}}</td>
+                <td>{{train.seats}}</td>
+                <td>{{train.journeyday}}</td>
           
                 <i class="fa fa-pencil-square-o" aria-hidden="true" type="button" data-bs-toggle="modal" data-bs-target="#edit"></i>
-                <i class="fa fa-trash-o" (click)="delete(tr)" aria-hidden="true"></i>
+                <i class="fa fa-trash-o" (click)="delete(train)" aria-hidden="true"></i>
             </tr>
          
         </tbody>
@@ -41,7 +41,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">NEW TRAIN FORM</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
     
