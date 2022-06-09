@@ -12,11 +12,12 @@ export class TrainlistComponent implements OnInit {
 
   constructor(private trainservice: TrainService, private router:Router) { }
 
-  settraindetail(data:any, selectedtrain:any){
+  settraindetail(data:any, selectedDestination:any){
     this.newFare=[];
     this.selectedFare=[];
     
     for(var i=0;i<data.length;i++){
+      // sun,mon,tue
       data[i].journeyday=data[i].journeyday.split(',')
       data[i].trainClasses= [
         { name: "Second Sitting (2S)", fare: 210 },
@@ -27,8 +28,8 @@ export class TrainlistComponent implements OnInit {
       this.selectedFare.push(data[i].trainClasses[0])
       this.newFare.push(data[i].trainClasses[0].fare)
     }
-    selectedtrain.trains=data
-    this.t=selectedtrain
+    selectedDestination.trains=data
+    this.t=selectedDestination
 
     //this.destinations = data
     
@@ -42,27 +43,29 @@ export class TrainlistComponent implements OnInit {
       //     selectedTrain = train;
       //   }
       // }
-      this.t.trains.forEach((train: any, idx: any) => {
-        if (trainIndex === idx) {
-          selectedTrain = train;
-        }
-      })
+      selectedTrain = this.t.trains[trainIndex];
+      // this.t.trains.forEach((train: any, idx: any) => {
+      //   if (trainIndex === idx) {
+      //     selectedTrain = train;
+      //   }
+      // })
       var selectedFare = this.selectedFare[trainIndex]
       selectedTrain.selectedFare = selectedFare;
+      selectedTrain.selectedDate = this.selectedDate;
       this.trainservice.selectDestination(selectedTrain)
       this.router.navigate(['/passenger'])
     }
     
     gettraindestination(){
     
-      var selectedtrain= this.trainservice.selectedDestination.getValue()
-      if (!selectedtrain || selectedtrain.length === 0) {
+      var selectedDestination= this.trainservice.selectedDestination.getValue()
+      if (selectedDestination.length === 0) {
         this.router.navigate(['/'])
       }
-    this.trainservice.gettraindetails(selectedtrain.id).subscribe(
+    this.trainservice.gettraindetails(selectedDestination.id).subscribe(
     
     (data: any) => {
-    this.settraindetail(data,selectedtrain);
+    this.settraindetail(data,selectedDestination);
     
 
     
@@ -78,7 +81,6 @@ export class TrainlistComponent implements OnInit {
   today: string = ""
   selectedDate: string = ""
 
-  j: any
   t: any
 
   formatDate(d: Date) {

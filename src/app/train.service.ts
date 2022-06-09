@@ -174,8 +174,8 @@ export class TrainService {
     return this.destinations
   }
 
-  selectDestination(train: any) {
-    this.selectedDestination.next(train)
+  selectDestination(data: any) {
+    this.selectedDestination.next(data)
    
   }
 }

@@ -56,7 +56,6 @@ export class PassengerComponent implements OnInit {
       var personDetail = this.details.value
       var info = this.trainservice.selectedDestination.getValue()
       info.person = personDetail
-      info.new = true
       this.trainservice.selectDestination(info)
       this.router.navigate(['/payment'])
     } else {

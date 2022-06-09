@@ -14,8 +14,10 @@
             <h4 class="train">{{enrollment.trainDetail.trainnumber}} &#160;<b>{{ enrollment.trainDetail.trainname}}</b></h4>
           </div>
           <div class="col">
-            <h5 class="far">{{enrollment.trainclass}} &#160; <strong>{{ enrollment.fare}}</strong></h5>
+            <h5 class="far">{{enrollment.trainclass}} {{enrollment.date}}&#160; <strong>{{ enrollment.fare}}</strong></h5>
           </div>
+          <!-- <div class="traveldate"
+          {{enrollment.date}}></div> -->
         </div>
       </div>
 
@@ -42,7 +44,7 @@
                   <td>{{ enrollment.age}}</td>
                   <td>{{ enrollment.gender}}</td>
                 </tr>
-                <div><button type="button" class="btn btn-warning">Cancel</button></div>
+                <div><button type="button" class="btn btn-warning" (click)="removeBooking(enrollment)">Cancel</button></div>
               </tbody>
             </table>
           </div>
