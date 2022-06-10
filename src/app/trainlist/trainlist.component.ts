@@ -12,23 +12,23 @@ export class TrainlistComponent implements OnInit {
 
   constructor(private trainservice: TrainService, private router:Router) { }
 
-  settraindetail(train:any, selectedDestination:any){
+  settraindetail(data:any, selectedDestination:any){
     this.newFare=[];
     this.selectedFare=[];
     
-    for(var i=0;i<train.length;i++){
+    for(var i=0;i<data.length;i++){
       // sun,mon,tue
-      train[i].journeyday=train[i].journeyday.split(',')
-      train[i].trainClasses= [
+      data[i].journeyday=data[i].journeyday.split(',')
+      data[i].trainClasses= [
         { name: "Second Sitting (2S)", fare: 210 },
         { name: "Sleeper (SL)", fare: 355 },
-        { name: "AC 3 Tier (3A)", fare: 960 },
+        { name: "AC 3 Tier (3A)", fare: 960 }, 
         { name: "AC 2 Tier (2A)", fare: 1370 }
       ];
-      this.selectedFare.push(train[i].trainClasses[0])
-      this.newFare.push(train[i].trainClasses[0].fare)
+      this.selectedFare.push(data[i].trainClasses[0])
+      this.newFare.push(data[i].trainClasses[0].fare)
     }
-    selectedDestination.trains=train
+    selectedDestination.trains=data
     this.t=selectedDestination
 
     
@@ -106,7 +106,7 @@ export class TrainlistComponent implements OnInit {
   }
 
 
-  // bookTicket(item: any) { }
+  bookTicket(item: any) { }
 
   getFare(e: any, k: number) {
     var idx = Number(e.target.value)

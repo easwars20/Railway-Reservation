@@ -25,9 +25,8 @@ export class PaymentComponent implements OnInit {
       trainclass: info.selectedFare.name,
       fare: info.selectedFare.fare,
       date: info.selectedDate,
-      //trainId: info.trainId
-      "trainDetail": {
-        "id": info.id,
+      trainDetail: {
+        id: info.id,
       }
     }
     console.log("data" + JSON.stringify(bookingData));
